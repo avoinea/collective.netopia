@@ -1,0 +1,41 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="xos.policy">
+
+    <include package="plone.behavior" file="meta.zcml" />
+
+    <plone:behavior
+      name="collective.netopia.order"
+      title="Order"
+      description="collective.netopia: Order"
+      provides="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+      />
+
+    <plone:behavior
+      name="collective.netopia.price"
+      title="Price"
+      description="collective.netopia: Price"
+      provides=".price.IPrice"
+      factory=".price.Price"
+      marker=".price.IPriceMarker"
+      />
+
+    <plone:behavior
+      name="collective.netopia.billing"
+      title="Billing"
+      description="collective.netopia: Billing"
+      provides=".billing.IBilling"
+      factory=".billing.Billing"
+      marker=".billing.IBillingMarker"
+      />
+
+    <plone:behavior
+      name="collective.netopia.shipping"
+      title="Shipping"
+      description="collective.netopia: Shipping"
+      provides=".shipping.IShipping"
+      factory=".shipping.Shipping"
+      marker=".shipping.IShippingMarker"
+      />
+
+</configure>

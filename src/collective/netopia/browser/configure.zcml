@@ -1,0 +1,39 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.netopia">
+
+  <browser:page
+    name="netopia.controlpanel"
+    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    permission="collective.netopia.settings.edit"
+    class=".controlpanel.ControlPanelView"
+    />
+
+  <browser:page
+    name="netopia.sign"
+    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+    permission="collective.netopia.order.sign"
+    class=".netopia.NetopiaSignedOrder"
+    />
+
+  <browser:page
+    name="netopia.pay"
+    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+    permission="collective.netopia.order.pay"
+    class=".netopia.NetopiaPay"
+    template="netopia.pt"
+    />
+
+  <browser:page
+    name="netopia.confirm"
+    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+    permission="collective.netopia.order.confirm"
+    class=".netopia.NetopiaConfirm"
+    />
+
+</configure>

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-11-12 19:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../interfaces.py:17
+msgid "API URL"
+msgstr "API URL"
+
+#: ../profiles.zcml:17
+msgid "Installs the collective.netopia add-on."
+msgstr "Instalează add-on-ul collective.netopia"
+
+#: ../browser/controlpanel.py:11
+#: ../profiles/default/controlpanel.xml
+msgid "Netopia Payments"
+msgstr "Netopia Payments"
+
+#: ../interfaces.py:18
+msgid "Netopia Payments MobilPay API URL"
+msgstr "Netopia Payments MobilPay API URL"
+
+#: ../interfaces.py:24
+msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
+msgstr "Cheie unică ce identifică punctul tău de vânzare în procesul de plată."
+
+#: ../interfaces.py:29
+msgid "Private KEY"
+msgstr "Cheia privată"
+
+#: ../interfaces.py:35
+msgid "Public KEY"
+msgstr "Cheia publică"
+
+#: ../interfaces.py:23
+msgid "Signature"
+msgstr "Semnătură"
+
+#: ../profiles.zcml:26
+msgid "Uninstalls the collective.netopia add-on."
+msgstr "Dezinstalează add-on-ul collective.netopia"
+
+#: ../profiles.zcml:17
+msgid "collective.netopia"
+msgstr "collective.netopia"
+
+#: ../profiles.zcml:26
+msgid "collective.netopia (uninstall)"
+msgstr "collective.netopia (dezinstalare)"

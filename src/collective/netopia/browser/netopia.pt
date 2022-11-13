@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="collective.netopia">
+
+<metal:block fill-slot="content-core">
+  <form tal:attributes="action python:view.server()" method="post">
+    <input type="hidden" name="env_key" tal:attributes="value python:view.signed_order.get('env_key')" />
+    <input type="hidden" name="data" tal:attributes="value python:view.signed_order.get('data')" />
+    <input type="submit" value="Continue to payment" i18n:attributes="value" />
+  </form>
+</metal:block>
+
+</html>

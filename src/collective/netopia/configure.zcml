@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <include file="permissions.zcml" />
+  <include file="profiles.zcml" />
+
+  <include package=".behaviors" />
+  <include package=".browser" />
+  <include package=".restapi" />
+  <include package=".utilities" />
+
+</configure>
