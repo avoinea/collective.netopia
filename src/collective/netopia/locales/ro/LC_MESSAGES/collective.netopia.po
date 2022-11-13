@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-11-12 19:08+0000\n"
+"POT-Creation-Date: 2022-11-13 01:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,36 +14,109 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../interfaces.py:17
+#: ../interfaces.py:21
 msgid "API URL"
 msgstr "API URL"
+
+#: ../behaviors/billing.py:46
+#: ../behaviors/shipping.py:46
+msgid "Address"
+msgstr "Adresa"
+
+#: ../behaviors/billing.py:23
+msgid "Billing"
+msgstr "Facturare"
+
+#: ../browser/netopia.pt:12
+msgid "Continue to payment"
+msgstr "Continuați cu plata"
+
+#: ../behaviors/price.py:37
+msgid "Currency"
+msgstr "Moneda"
+
+#: ../behaviors/billing.py:52
+#: ../behaviors/shipping.py:52
+msgid "Email"
+msgstr "Email"
+
+#: ../behaviors/billing.py:34
+#: ../behaviors/shipping.py:34
+msgid "First Name"
+msgstr "Prenume"
 
 #: ../profiles.zcml:17
 msgid "Installs the collective.netopia add-on."
 msgstr "Instalează add-on-ul collective.netopia"
 
-#: ../browser/controlpanel.py:11
+#: ../behaviors/price.py:32
+msgid "Item price"
+msgstr "Preț produs"
+
+#: ../behaviors/billing.py:40
+#: ../behaviors/shipping.py:40
+msgid "Last Name"
+msgstr "Numele de familie"
+
+#: ../browser/controlpanel.py:12
 #: ../profiles/default/controlpanel.xml
 msgid "Netopia Payments"
 msgstr "Netopia Payments"
 
-#: ../interfaces.py:18
+#: ../interfaces.py:22
 msgid "Netopia Payments MobilPay API URL"
 msgstr "Netopia Payments MobilPay API URL"
 
-#: ../interfaces.py:24
+#: ../interfaces.py:28
 msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
 msgstr "Cheie unică ce identifică punctul tău de vânzare în procesul de plată."
 
-#: ../interfaces.py:29
+#: ../behaviors/billing.py:58
+#: ../behaviors/shipping.py:58
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../behaviors/billing.py:59
+msgid "Phone number"
+msgstr "Nr. telefon"
+
+#: ../behaviors/price.py:23
+msgid "Price"
+msgstr "Preț"
+
+#: ../interfaces.py:35
 msgid "Private KEY"
 msgstr "Cheia privată"
 
-#: ../interfaces.py:35
+#: ../interfaces.py:41
 msgid "Public KEY"
 msgstr "Cheia publică"
 
-#: ../interfaces.py:23
+#: ../behaviors/shipping.py:23
+msgid "Shipping"
+msgstr "Livrare"
+
+#: ../behaviors/shipping.py:47
+msgid "Shipping Address"
+msgstr "Adresa livrare"
+
+#: ../behaviors/shipping.py:53
+msgid "Shipping Email"
+msgstr "Email livrare"
+
+#: ../behaviors/shipping.py:35
+msgid "Shipping First Name"
+msgstr "Prenumele pentru livrare"
+
+#: ../behaviors/shipping.py:41
+msgid "Shipping Last Name"
+msgstr "Numele de familie pentru livrare"
+
+#: ../behaviors/shipping.py:59
+msgid "Shipping Phone number"
+msgstr "Nr. telefon pentru livrare"
+
+#: ../interfaces.py:27
 msgid "Signature"
 msgstr "Semnătură"
 

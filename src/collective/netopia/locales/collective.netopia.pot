@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-11-12 19:08+0000\n"
+"POT-Creation-Date: 2022-11-13 01:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,36 +17,109 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.netopia\n"
 
-#: ../interfaces.py:17
+#: ../interfaces.py:21
 msgid "API URL"
+msgstr ""
+
+#: ../behaviors/billing.py:46
+#: ../behaviors/shipping.py:46
+msgid "Address"
+msgstr ""
+
+#: ../behaviors/billing.py:23
+msgid "Billing"
+msgstr ""
+
+#: ../browser/netopia.pt:12
+msgid "Continue to payment"
+msgstr ""
+
+#: ../behaviors/price.py:37
+msgid "Currency"
+msgstr ""
+
+#: ../behaviors/billing.py:52
+#: ../behaviors/shipping.py:52
+msgid "Email"
+msgstr ""
+
+#: ../behaviors/billing.py:34
+#: ../behaviors/shipping.py:34
+msgid "First Name"
 msgstr ""
 
 #: ../profiles.zcml:17
 msgid "Installs the collective.netopia add-on."
 msgstr ""
 
-#: ../browser/controlpanel.py:11
+#: ../behaviors/price.py:32
+msgid "Item price"
+msgstr ""
+
+#: ../behaviors/billing.py:40
+#: ../behaviors/shipping.py:40
+msgid "Last Name"
+msgstr ""
+
+#: ../browser/controlpanel.py:12
 #: ../profiles/default/controlpanel.xml
 msgid "Netopia Payments"
 msgstr ""
 
-#: ../interfaces.py:18
+#: ../interfaces.py:22
 msgid "Netopia Payments MobilPay API URL"
 msgstr ""
 
-#: ../interfaces.py:24
+#: ../interfaces.py:28
 msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
 msgstr ""
 
-#: ../interfaces.py:29
-msgid "Private KEY"
+#: ../behaviors/billing.py:58
+#: ../behaviors/shipping.py:58
+msgid "Phone"
+msgstr ""
+
+#: ../behaviors/billing.py:59
+msgid "Phone number"
+msgstr ""
+
+#: ../behaviors/price.py:23
+msgid "Price"
 msgstr ""
 
 #: ../interfaces.py:35
+msgid "Private KEY"
+msgstr ""
+
+#: ../interfaces.py:41
 msgid "Public KEY"
 msgstr ""
 
-#: ../interfaces.py:23
+#: ../behaviors/shipping.py:23
+msgid "Shipping"
+msgstr ""
+
+#: ../behaviors/shipping.py:47
+msgid "Shipping Address"
+msgstr ""
+
+#: ../behaviors/shipping.py:53
+msgid "Shipping Email"
+msgstr ""
+
+#: ../behaviors/shipping.py:35
+msgid "Shipping First Name"
+msgstr ""
+
+#: ../behaviors/shipping.py:41
+msgid "Shipping Last Name"
+msgstr ""
+
+#: ../behaviors/shipping.py:59
+msgid "Shipping Phone number"
+msgstr ""
+
+#: ../interfaces.py:27
 msgid "Signature"
 msgstr ""
 
