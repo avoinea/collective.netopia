@@ -19,17 +19,17 @@ setup(
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
-        "Environment :: Web Environment",
+        "Development Status :: 5 - Production/Stable",
         "Framework :: Plone",
-        "Framework :: Plone :: Addon",
         "Framework :: Plone :: 5.2",
         "Framework :: Plone :: 6.0",
+        "Framework :: Plone :: Addon",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-        "Operating System :: OS Independent",
-        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords='Python Plone CMS',
     author='Alin Voinea',
@@ -54,8 +54,11 @@ setup(
         'pyopenssl',
     ],
     extras_require={
-        'test': [
-            'plone.app.testing',
+        "test": [
+            "plone.app.testing",
+            "plone.testing",
+            "plone.app.contenttypes",
+            "zope.testrunner",
         ],
     },
     entry_points="""
