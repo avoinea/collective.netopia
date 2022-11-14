@@ -296,12 +296,13 @@ class NetopiaConfirm(BrowserView):
 
     def xml(self, error_code, error_type, error_message):
         """Return Netopia Payment XML"""
+        logger.warning("%s: code: %s, type: %s, msg: %s",
+            self.context.absolute_url(), error_code, error_type, error_message)
         crc = Crc(error_code, error_type, error_message).create_crc()
         return crc.toprettyxml(indent="\t", encoding="utf-8")
 
     def __call__(self):
         # Invalid method
-        import ipdb; ipdb.set_trace()
         if self.request.method.lower() != "post":
             return self.xml(
                 Request.ERROR_CONFIRM_INVALID_POST_METHOD,
