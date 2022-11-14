@@ -62,10 +62,11 @@ Response
 
 """
 import logging
-from zope.event import notify
 from urllib.parse import unquote
+from zope.event import notify
 from zope.component import queryUtility
 from plone.uuid.interfaces import IUUID
+from plone import api
 from collective.netopia.mobilpay.request import Request
 from collective.netopia.mobilpay.payment.request.crc import Crc
 from collective.netopia.interfaces import ICollectiveNetopiaSignedOrder
@@ -78,7 +79,6 @@ from collective.netopia.events.payment import PaymentCancelledEvent
 from collective.netopia.events.payment import PaymentCreditEvent
 from collective.netopia.events.payment import PaymentRejectedEvent
 
-from plone import api
 from Products.Five.browser import BrowserView
 
 logger = logging.getLogger("collective.netopia")
@@ -333,36 +333,36 @@ class NetopiaConfirm(BrowserView):
             req = Request().factory_from_encrypted(
                 unquote(env_key), unquote(env_data), self.private_key
             )
-            notify = req.get_notify()
-            if int(notify.errorCode) == 0:
-                if notify.action == "confirmed":
-                    self.confirmed(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
-                elif notify.action == "confirmed_pending":
-                    self.confirmed_pending(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
-                elif notify.action == "paid_pending":
-                    self.paid_pending(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
-                elif notify.action == "paid":
-                    self.paid(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
-                elif notify.action == "canceled":
-                    self.canceled(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
-                elif notify.action == "credit":
-                    self.credit(notify.errorCode, notify.errorMessage)
-                    error_message = notify.errorMessage
+            req_notify = req.get_notify()
+            if int(req_notify.errorCode) == 0:
+                if req_notify.action == "confirmed":
+                    self.confirmed(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
+                elif req_notify.action == "confirmed_pending":
+                    self.confirmed_pending(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
+                elif req_notify.action == "paid_pending":
+                    self.paid_pending(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
+                elif req_notify.action == "paid":
+                    self.paid(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
+                elif req_notify.action == "canceled":
+                    self.canceled(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
+                elif req_notify.action == "credit":
+                    self.credit(req_notify.errorCode, req_notify.errorMessage)
+                    error_message = req_notify.errorMessage
                 else:
-                    self.rejected(notify.errorCode, notify.errorMessage)
+                    self.rejected(req_notify.errorCode, req_notify.errorMessage)
                     error_type = Request.CONFIRM_ERROR_TYPE_PERMANENT
                     error_code = Request.ERROR_CONFIRM_INVALID_ACTION
-                    error_message = "mobilpay_refference_action paramaters is invalid"
+                    error_message = "mobilpay_reference_action parameters is invalid"
             else:
-                self.rejected(notify.errorCode, notify.errorMessage)
-                error_message = notify.errorMessage
+                self.rejected(req_notify.errorCode, req_notify.errorMessage)
+                error_message = req_notify.errorMessage
                 error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
-                error_code = notify.errorCode
+                error_code = req_notify.errorCode
         except Exception as err:
             error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
             error_message, error_code = err.args[0], err.args[1]
