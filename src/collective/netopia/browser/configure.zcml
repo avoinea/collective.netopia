@@ -1,39 +1,40 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="collective.netopia">
+    i18n_domain="collective.netopia"
+    >
 
   <browser:page
-    name="netopia.controlpanel"
-    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    permission="collective.netopia.settings.edit"
-    class=".controlpanel.ControlPanelView"
-    />
+      name="netopia.controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.ControlPanelView"
+      permission="collective.netopia.settings.edit"
+      layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+      />
 
   <browser:page
-    name="netopia.sign"
-    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
-    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
-    permission="collective.netopia.order.sign"
-    class=".netopia.NetopiaSignedOrder"
-    />
+      name="netopia.sign"
+      for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+      class=".netopia.NetopiaSignedOrder"
+      permission="collective.netopia.order.sign"
+      layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+      />
 
   <browser:page
-    name="netopia.pay"
-    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
-    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
-    permission="collective.netopia.order.pay"
-    class=".netopia.NetopiaPay"
-    template="netopia.pt"
-    />
+      name="netopia.pay"
+      for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+      class=".netopia.NetopiaPay"
+      template="netopia.pt"
+      permission="collective.netopia.order.pay"
+      layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+      />
 
   <browser:page
-    name="netopia.confirm"
-    layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
-    for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
-    permission="collective.netopia.order.confirm"
-    class=".netopia.NetopiaConfirm"
-    />
+      name="netopia.confirm"
+      for="collective.netopia.interfaces.ICollectiveNetopiaOrder"
+      class=".netopia.NetopiaConfirm"
+      permission="collective.netopia.order.confirm"
+      layer="collective.netopia.interfaces.ICollectiveNetopiaLayer"
+      />
 
 </configure>

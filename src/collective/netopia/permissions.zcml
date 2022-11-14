@@ -1,30 +1,31 @@
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
 
   <permission
-    id="collective.netopia.settings.edit"
-    title="collective.netopia.settings: Edit"
-    />
+      id="collective.netopia.settings.edit"
+      title="collective.netopia.settings: Edit"
+      />
 
   <permission
-    id="collective.netopia.settings.view"
-    title="collective.netopia.settings: View"
-    />
+      id="collective.netopia.settings.view"
+      title="collective.netopia.settings: View"
+      />
 
   <permission
-    id="collective.netopia.order.sign"
-    title="collective.netopia.order: Sign"
-    />
+      id="collective.netopia.order.sign"
+      title="collective.netopia.order: Sign"
+      />
 
   <permission
-    id="collective.netopia.order.pay"
-    title="collective.netopia.order: Pay"
-    />
+      id="collective.netopia.order.pay"
+      title="collective.netopia.order: Pay"
+      />
 
   <permission
-    id="collective.netopia.order.confirm"
-    title="collective.netopia.order: Confirm"
-    />
+      id="collective.netopia.order.confirm"
+      title="collective.netopia.order: Confirm"
+      />
 
 </configure>

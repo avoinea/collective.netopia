@@ -2,32 +2,33 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
-    i18n_domain="collective.netopia">
+    i18n_domain="collective.netopia"
+    >
 
-    <i18n:registerTranslations directory="locales" />
+  <i18n:registerTranslations directory="locales" />
 
-    <genericsetup:registerProfile
-        name="default"
-        title="collective.netopia"
-        directory="profiles/default"
-        description="Installs the collective.netopia add-on."
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        post_handler=".setuphandlers.post_install"
-        />
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.netopia"
+      description="Installs the collective.netopia add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      post_handler=".setuphandlers.post_install"
+      />
 
-    <genericsetup:registerProfile
-        name="uninstall"
-        title="collective.netopia (uninstall)"
-        directory="profiles/uninstall"
-        description="Uninstalls the collective.netopia add-on."
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        post_handler=".setuphandlers.uninstall"
-        />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.netopia (uninstall)"
+      description="Uninstalls the collective.netopia add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      post_handler=".setuphandlers.uninstall"
+      />
 
-    <utility
-        factory=".setuphandlers.HiddenProfiles"
-        name="collective.netopia-hiddenprofiles"
-        />
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="collective.netopia-hiddenprofiles"
+      />
 
 
 </configure>

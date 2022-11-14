@@ -1,30 +1,34 @@
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:plone="http://namespaces.plone.org/plone"
-  >
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    >
 
-  <include package="plone.restapi"  />
+  <include package="plone.restapi" />
 
   <adapter
-    factory=".controlpanel.Controlpanel"
-    name="netopia" />
+      factory=".controlpanel.Controlpanel"
+      name="netopia"
+      />
 
   <plone:service
-    method="GET"
-    name="@netopia.sign"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    factory=".get.NetopiaSign"
-    permission="collective.netopia.order.sign"
-    />
+      method="GET"
+      factory=".get.NetopiaSign"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="collective.netopia.order.sign"
+      name="@netopia.sign"
+      />
 
   <plone:service
-    method="GET"
-    name="@netopia.sign"
-    for="Products.CMFCore.interfaces.IContentish"
-    factory=".get.NetopiaSignGet"
-    permission="collective.netopia.order.sign"
-    />
+      method="GET"
+      factory=".get.NetopiaSignGet"
+      for="Products.CMFCore.interfaces.IContentish"
+      permission="collective.netopia.order.sign"
+      name="@netopia.sign"
+      />
 
-   <adapter factory=".get.NetopiaSign" name="netopia.sign" />
+  <adapter
+      factory=".get.NetopiaSign"
+      name="netopia.sign"
+      />
 
 </configure>

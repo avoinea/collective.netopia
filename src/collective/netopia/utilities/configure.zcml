@@ -1,9 +1,8 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope">
+<configure xmlns="http://namespaces.zope.org/zope">
 
-    <utility
-        provides="collective.netopia.interfaces.ICollectiveNetopiaSignedOrder"
-        factory=".order.SignedOrder"
-    />
+  <utility
+      factory=".order.SignedOrder"
+      provides="collective.netopia.interfaces.ICollectiveNetopiaSignedOrder"
+      />
 
 </configure>
