@@ -54,7 +54,7 @@ class Crypto:
         try:
             enc_data = base64.b64decode(enc_data)
             enc_key = base64.b64decode(enc_key)
-        except:
+        except Exception:
             raise Exception(
                 "Failed decoding enc_data and enc_key", ERROR_ENV_DATA_MISSING
             )
@@ -65,5 +65,5 @@ class Crypto:
             cipher = ARC4.new(decrypted_key)
             xml_data = cipher.decrypt(enc_data)
             return xml_data
-        except:
+        except Exception:
             raise Exception("Failed decrypting data", ERROR_ENV_DATA_MISSING)

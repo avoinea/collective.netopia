@@ -140,27 +140,31 @@ class NetopiaSignedOrder(BrowserView):
                 "return_url", interface=ICollectiveNetopiaSettings, default=""
             )
             # Site relative path
-            if self._return_url.startswith('/'):
+            if self._return_url.startswith("/"):
                 self._return_url = api.portal.get().absolute_url() + self._return_url
             # Context relative path
-            if not self._return_url.startswith('http'):
-                self._return_url = '/'.join((self.context.absolute_url(), self._return_url))
+            if not self._return_url.startswith("http"):
+                self._return_url = "/".join(
+                    (self.context.absolute_url(), self._return_url)
+                )
             logger.warning("return_url: %s", self._return_url)
         return self._return_url
 
     @property
     def confirm_url(self):
-        """ Confirm URL """
+        """Confirm URL"""
         if self._confirm_url is None:
             self._confirm_url = api.portal.get_registry_record(
                 "confirm_url", interface=ICollectiveNetopiaSettings, default=""
             )
             # Site relative path
-            if self._confirm_url.startswith('/'):
+            if self._confirm_url.startswith("/"):
                 self._confirm_url = api.portal.get().absolute_url() + self._confirm_url
             # Context relative path
-            if not self._confirm_url.startswith('http'):
-                self._confirm_url = '/'.join((self.context.absolute_url(), self._confirm_url))
+            if not self._confirm_url.startswith("http"):
+                self._confirm_url = "/".join(
+                    (self.context.absolute_url(), self._confirm_url)
+                )
             logger.warning("confirm_url: %s", self._confirm_url)
         return self._confirm_url
 
@@ -237,7 +241,9 @@ class NetopiaConfirm(BrowserView):
         status of the order and the delivery of the product
         """
         # update DB, SET status = "confirmed/captured"
-        notify(PaymentConfirmedEvent(self.context, status='confirmed', code=code, msg=msg))
+        notify(
+            PaymentConfirmedEvent(self.context, status="confirmed", code=code, msg=msg)
+        )
 
     def confirmed_pending(self, code, msg):
         """
@@ -247,7 +253,11 @@ class NetopiaConfirm(BrowserView):
         a new notification for a confirmation or cancellation action.
         """
         # update DB, SET status = "pending"
-        notify(PaymentConfirmedPendingEvent(self.context, status='pending', code=code, msg=msg))
+        notify(
+            PaymentConfirmedPendingEvent(
+                self.context, status="pending", code=code, msg=msg
+            )
+        )
 
     def paid_pending(self, code, msg):
         """
@@ -257,7 +267,11 @@ class NetopiaConfirm(BrowserView):
         for a confirmation or cancellation action.
         """
         # update DB, SET status = "paid_pending"
-        notify(PaymentPaidPendingEvent(self.context, status='paid_pending', code=code, msg=msg))
+        notify(
+            PaymentPaidPendingEvent(
+                self.context, status="paid_pending", code=code, msg=msg
+            )
+        )
 
     def paid(self, code, msg):
         """
@@ -267,7 +281,7 @@ class NetopiaConfirm(BrowserView):
         received for a confirmation or cancellation action.
         """
         # update DB, SET status = 'open/preauthorized'
-        notify(PaymentPaidEvent(self.context, status='open', code=code, msg=msg))
+        notify(PaymentPaidEvent(self.context, status="open", code=code, msg=msg))
 
     def canceled(self, code, msg):
         """
@@ -275,7 +289,9 @@ class NetopiaConfirm(BrowserView):
         is cancelled. We do not do delivery/shipping.
         """
         # update DB, SET status = 'canceled'
-        notify(PaymentCancelledEvent(self.context, status='canceled', code=code, msg=msg))
+        notify(
+            PaymentCancelledEvent(self.context, status="canceled", code=code, msg=msg)
+        )
 
     def credit(self, code, msg):
         """
@@ -284,20 +300,27 @@ class NetopiaConfirm(BrowserView):
         it must be stopped or reversed.
         """
         # update DB, SET status = 'refunded'
-        notify(PaymentCreditEvent(self.context, status='refunded', code=code, msg=msg))
+        notify(PaymentCreditEvent(self.context, status="refunded", code=code, msg=msg))
 
     def rejected(self, code, msg):
         """
         When the action is rejected, it means that the transaction
         is rejected. We do not do delivery/shipping.
         """
-        notify(PaymentRejectedEvent(self.context, status='refunded', code=code, msg=msg))
+        notify(
+            PaymentRejectedEvent(self.context, status="refunded", code=code, msg=msg)
+        )
         # update DB, SET status = 'rejected'
 
     def xml(self, error_code, error_type, error_message):
         """Return Netopia Payment XML"""
-        logger.warning("%s: code: %s, type: %s, msg: %s",
-            self.context.absolute_url(), error_code, error_type, error_message)
+        logger.warning(
+            "%s: code: %s, type: %s, msg: %s",
+            self.context.absolute_url(),
+            error_code,
+            error_type,
+            error_message,
+        )
         crc = Crc(error_code, error_type, error_message).create_crc()
         return crc.toprettyxml(indent="\t", encoding="utf-8")
 
@@ -339,7 +362,9 @@ class NetopiaConfirm(BrowserView):
                     self.confirmed(req_notify.errorCode, req_notify.errorMessage)
                     error_message = req_notify.errorMessage
                 elif req_notify.action == "confirmed_pending":
-                    self.confirmed_pending(req_notify.errorCode, req_notify.errorMessage)
+                    self.confirmed_pending(
+                        req_notify.errorCode, req_notify.errorMessage
+                    )
                     error_message = req_notify.errorMessage
                 elif req_notify.action == "paid_pending":
                     self.paid_pending(req_notify.errorCode, req_notify.errorMessage)

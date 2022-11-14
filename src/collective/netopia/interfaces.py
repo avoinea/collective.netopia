@@ -33,7 +33,9 @@ class ICollectiveNetopiaSettings(Interface):
             "Leave empty to redirect to the Order URL. "
             "You can redirect to order URL + dedicated view: e.g. thank-you. "
             "Start with / to redirect to Site Root relative path: e.g.: /user-account. "
-            "You can also provide an absolute_url like: https://www.example.com/thank-you"),
+            "You can also provide an absolute_url "
+            "like: https://www.example.com/thank-you"
+        ),
         default="",
         required=False,
     )
@@ -44,9 +46,12 @@ class ICollectiveNetopiaSettings(Interface):
             "The confirm URL will be used for IPN (Instant Payment Notification) - "
             "i.e. to send information about the transaction's status. "
             "If you're not sure about this use default value: netopia.confirm. "
-            "You can implement your custom confirmation order URL: e.g. custom-confirmation. "
-            "Start with / to use a Site Root relative path: e.g.: /global-confirmation. "
-            "You can also provide an absolute_url like: https://www.example.com/global-confirmation-webhook"
+            "You can implement your custom confirmation order URL: "
+            "e.g. custom-confirmation. "
+            "Start with / to use a Site Root relative path: "
+            "e.g.: /global-confirmation. "
+            "You can also provide an absolute_url like: "
+            "https://www.example.com/global-confirmation-webhook"
         ),
         default="netopia.confirm",
     )
@@ -54,7 +59,8 @@ class ICollectiveNetopiaSettings(Interface):
     signature = schema.TextLine(
         title=_("Signature"),
         description=_(
-            "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
+            "Netopia Payments MobilPay unique key that identifies "
+            "your point of sale in the payment process."
         ),
         default="",
     )
@@ -108,8 +114,8 @@ class IPaymentCancelledEvent(IPaymentEvent):
 
 
 class IPaymentCreditEvent(IPaymentEvent):
-    """ Payment status: credit"""
+    """Payment status: credit"""
 
 
 class IPaymentRejectedEvent(IPaymentEvent):
-    """ Payment status: rejected"""
+    """Payment status: rejected"""

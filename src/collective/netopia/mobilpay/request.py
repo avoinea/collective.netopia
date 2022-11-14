@@ -104,7 +104,7 @@ class Request:
 
         try:
             xml_data = parseString(result.decode("utf-8"))
-        except:
+        except Exception:
             raise Exception(
                 "Failed decrypting data", self.ERROR_CONFIRM_FAILED_DECRYPT_DATA
             )

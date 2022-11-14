@@ -18,7 +18,7 @@ def execute_payment(event):
 
 
 def payment_confirmation(obj, event):
-    """ Payment confirmation event """
+    """Payment confirmation event"""
     anno = queryAdapter(obj, IAnnotations)
     if anno is None:
         logger.warning("IAnnotations not enabled for %s", obj)
@@ -29,5 +29,5 @@ def payment_confirmation(obj, event):
         anno[ANNOTATION_KEY] = PersistentDict()
         storage = anno[ANNOTATION_KEY]
 
-    storage['code'] = event.code
-    storage['msg'] = event.msg
+    storage["code"] = event.code
+    storage["msg"] = event.msg

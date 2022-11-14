@@ -10,6 +10,7 @@ from collective.netopia.interfaces import IPaymentCancelledEvent
 from collective.netopia.interfaces import IPaymentCreditEvent
 from collective.netopia.interfaces import IPaymentRejectedEvent
 
+
 @implementer(IPaymentEvent)
 class PaymentEvent:
     """Custom payment event"""
@@ -47,9 +48,9 @@ class PaymentCancelledEvent(PaymentEvent):
 
 @implementer(IPaymentCreditEvent)
 class PaymentCreditEvent(PaymentEvent):
-    """ Payment status: credit"""
+    """Payment status: credit"""
 
 
 @implementer(IPaymentRejectedEvent)
 class PaymentRejectedEvent(PaymentEvent):
-    """ Payment status: rejected"""
+    """Payment status: rejected"""
