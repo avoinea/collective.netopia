@@ -11,30 +11,30 @@ from zope.interface import provider
 
 
 class IPriceMarker(Interface):
-    """ Price behaviour
-    """
+    """Price behaviour"""
 
 
 @provider(IFormFieldProvider)
 class IPrice(model.Schema):
-    """ Price schema
-    """
-    model.fieldset('price',
-        label=_('Price'),
+    """Price schema"""
+
+    model.fieldset(
+        "price",
+        label=_("Price"),
         fields=(
-            'price',
-            'currency',
-        )
+            "price",
+            "currency",
+        ),
     )
 
     price = schema.TextLine(
-        title=_('Price'),
+        title=_("Price"),
         description=_("Item price"),
         required=True,
     )
 
     currency = schema.TextLine(
-        title=_('Currency'),
+        title=_("Currency"),
         description=_("Currency"),
         default="RON",
         required=True,
@@ -44,14 +44,14 @@ class IPrice(model.Schema):
 @implementer(IPrice)
 @adapter(IPriceMarker)
 class Price(object):
-    """ Item's price
-    """
+    """Item's price"""
+
     def __init__(self, context):
         self.context = context
 
     @property
     def price(self):
-        if hasattr(self.context, 'price'):
+        if hasattr(self.context, "price"):
             return self.context.price
         return 0
 
@@ -61,9 +61,9 @@ class Price(object):
 
     @property
     def currency(self):
-        if hasattr(self.context, 'currency'):
+        if hasattr(self.context, "currency"):
             return self.context.currency
-        return 'ron'
+        return "ron"
 
     @currency.setter
     def currency(self, value):

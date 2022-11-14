@@ -11,68 +11,69 @@ from zope.interface import provider
 
 
 class IBillingMarker(Interface):
-    """ Billing behaviour
-    """
+    """Billing behaviour"""
 
 
 @provider(IFormFieldProvider)
 class IBilling(model.Schema):
-    """ Billing schema
-    """
-    model.fieldset('billing',
-        label=_('Billing'),
+    """Billing schema"""
+
+    model.fieldset(
+        "billing",
+        label=_("Billing"),
         fields=(
-            'first_name',
-            'last_name',
-            'address',
-            'email',
-            'phone',
-        )
+            "first_name",
+            "last_name",
+            "address",
+            "email",
+            "phone",
+        ),
     )
 
     first_name = schema.TextLine(
-        title=_('First Name'),
+        title=_("First Name"),
         description=_("First Name"),
         required=True,
     )
 
     last_name = schema.TextLine(
-        title=_('Last Name'),
+        title=_("Last Name"),
         description=_("Last Name"),
         required=True,
     )
 
     address = schema.TextLine(
-        title=_('Address'),
+        title=_("Address"),
         description=_("Address"),
         required=True,
     )
 
     email = schema.Email(
-        title=_('Email'),
+        title=_("Email"),
         description=_("Email"),
         required=True,
     )
 
     phone = schema.TextLine(
-        title=_('Phone'),
+        title=_("Phone"),
         description=_("Phone number"),
         required=True,
     )
 
+
 @implementer(IBilling)
 @adapter(IBillingMarker)
 class Billing(object):
-    """ Item's billing info
-    """
+    """Item's billing info"""
+
     def __init__(self, context):
         self.context = context
 
     @property
     def first_name(self):
-        if hasattr(self.context, 'first_name'):
+        if hasattr(self.context, "first_name"):
             return self.context.first_name
-        return ''
+        return ""
 
     @first_name.setter
     def first_name(self, value):
@@ -80,9 +81,9 @@ class Billing(object):
 
     @property
     def last_name(self):
-        if hasattr(self.context, 'last_name'):
+        if hasattr(self.context, "last_name"):
             return self.context.last_name
-        return ''
+        return ""
 
     @last_name.setter
     def last_name(self, value):
@@ -90,9 +91,9 @@ class Billing(object):
 
     @property
     def address(self):
-        if hasattr(self.context, 'address'):
+        if hasattr(self.context, "address"):
             return self.context.address
-        return ''
+        return ""
 
     @address.setter
     def address(self, value):
@@ -100,9 +101,9 @@ class Billing(object):
 
     @property
     def email(self):
-        if hasattr(self.context, 'email'):
+        if hasattr(self.context, "email"):
             return self.context.email
-        return ''
+        return ""
 
     @email.setter
     def email(self, value):
@@ -110,9 +111,9 @@ class Billing(object):
 
     @property
     def phone(self):
-        if hasattr(self.context, 'phone'):
+        if hasattr(self.context, "phone"):
             return self.context.phone
-        return ''
+        return ""
 
     @phone.setter
     def phone(self, value):

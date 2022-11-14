@@ -1,0 +1,88 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Content Rules events -->
+    <interface
+        interface="collective.netopia.interfaces.IPaymentConfirmedEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: confirmed"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentConfirmedPendingEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: confirmed_pending"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentPaidPendingEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: paid_pending"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentPaidEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: paid"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentCancelledEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: cancelled"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentCreditEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: credit"
+        />
+
+    <interface
+        interface="collective.netopia.interfaces.IPaymentRejectedEvent"
+        type="plone.contentrules.rule.interfaces.IRuleEventType"
+        name="Netopia Payment: rejected"
+        />
+
+    <!-- Content rules subscribers -->
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentConfirmedEvent"
+        handler=".handler.execute_payment"
+        />
+    
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentConfirmedPendingEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentPaidPendingEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentPaidEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentCancelledEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentCreditEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.IPaymentRejectedEvent"
+        handler=".handler.execute_payment"
+        />
+
+    <subscriber
+        for="collective.netopia.interfaces.ICollectiveNetopiaOrder
+             collective.netopia.interfaces.IPaymentEvent"
+        handler=".handler.payment_confirmation"
+        />
+
+</configure>

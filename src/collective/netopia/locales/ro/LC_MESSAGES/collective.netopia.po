@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-11-13 01:23+0000\n"
+"POT-Creation-Date: 2022-11-14 22:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../interfaces.py:21
+#: ../interfaces.py:22
 msgid "API URL"
 msgstr "API URL"
 
@@ -26,6 +26,10 @@ msgstr "Adresa"
 #: ../behaviors/billing.py:23
 msgid "Billing"
 msgstr "Facturare"
+
+#: ../interfaces.py:42
+msgid "Confirm URL"
+msgstr "Adresa URL Confirmare"
 
 #: ../browser/netopia.pt:12
 msgid "Continue to payment"
@@ -45,7 +49,7 @@ msgstr "Email"
 msgid "First Name"
 msgstr "Prenume"
 
-#: ../profiles.zcml:17
+#: ../profiles.zcml:16
 msgid "Installs the collective.netopia add-on."
 msgstr "Instalează add-on-ul collective.netopia"
 
@@ -63,11 +67,11 @@ msgstr "Numele de familie"
 msgid "Netopia Payments"
 msgstr "Netopia Payments"
 
-#: ../interfaces.py:22
+#: ../interfaces.py:23
 msgid "Netopia Payments MobilPay API URL"
 msgstr "Netopia Payments MobilPay API URL"
 
-#: ../interfaces.py:28
+#: ../interfaces.py:56
 msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
 msgstr "Cheie unică ce identifică punctul tău de vânzare în procesul de plată."
 
@@ -84,13 +88,17 @@ msgstr "Nr. telefon"
 msgid "Price"
 msgstr "Preț"
 
-#: ../interfaces.py:35
+#: ../interfaces.py:63
 msgid "Private KEY"
 msgstr "Cheia privată"
 
-#: ../interfaces.py:41
+#: ../interfaces.py:69
 msgid "Public KEY"
 msgstr "Cheia publică"
+
+#: ../interfaces.py:28
+msgid "Return URL"
+msgstr "Adresa URL Redirecționare"
 
 #: ../behaviors/shipping.py:23
 msgid "Shipping"
@@ -116,18 +124,26 @@ msgstr "Numele de familie pentru livrare"
 msgid "Shipping Phone number"
 msgstr "Nr. telefon pentru livrare"
 
-#: ../interfaces.py:27
+#: ../interfaces.py:55
 msgid "Signature"
 msgstr "Semnătură"
 
-#: ../profiles.zcml:26
+#: ../interfaces.py:43
+msgid "The confirm URL will be used for IPN (Instant Payment Notification) - i.e. to send information about the transaction's status. If you're not sure about this use default value: netopia.confirm. You can implement your custom confirmation order URL: e.g. custom-confirmation. Start with / to use a Site Root relative path: e.g.: /global-confirmation. You can also provide an absolute_url like: https://www.example.com/global-confirmation-webhook"
+msgstr "Adresa URL de confirmare va fi folosită pentru IPN (Notificare de plată instantanee) - adică pentru a trimite informații despre starea tranzacției. Dacă nu sunteți sigur de această valoare, utilizați valoarea implicită: netopia.confirm. Puteți implementa adresa URL personalizată a comenzii de confirmare: de ex. custom-confirmation. Începeți cu / pentru a utiliza o cale relativă a rădăcinii site-ului: de exemplu: /global-confirmation. De asemenea, puteți furniza o adresă URL absolută, cum ar fi: https://www.example.com/global-confirmation-webhook"
+
+#: ../interfaces.py:29
+msgid "The redirect URL will be used to redirect User/Customer back to the Merchant's website from NETOPIA Payments (from the payment page, after the payment is done). Leave empty to redirect to the Order URL. You can redirect to order URL + dedicated view: e.g. thank-you. Start with / to redirect to Site Root relative path: e.g.: /user-account. You can also provide an absolute_url like: https://www.example.com/thank-you"
+msgstr "Adresa URL de redirecționare va fi utilizată pentru a redirecționa Utilizatorul/Clientul înapoi către site-ul Comerciantului din NETOPIA Payments (din pagina de plată, după ce plata este efectuată). Lăsați necompletat pentru a redirecționa către URL-ul comenzii. Puteți redirecționa către adresa URL a comenzii + vizualizare dedicată: de ex. thank-you. Începeți cu / pentru a redirecționa către calea relativă a rădăcinii site-ului: de exemplu: /user-account. De asemenea, puteți furniza o adresă URL absolută, cum ar fi: https://www.example.com/thank-you"
+
+#: ../profiles.zcml:25
 msgid "Uninstalls the collective.netopia add-on."
 msgstr "Dezinstalează add-on-ul collective.netopia"
 
-#: ../profiles.zcml:17
+#: ../profiles.zcml:16
 msgid "collective.netopia"
 msgstr "collective.netopia"
 
-#: ../profiles.zcml:26
+#: ../profiles.zcml:25
 msgid "collective.netopia (uninstall)"
 msgstr "collective.netopia (dezinstalare)"

@@ -1,4 +1,3 @@
-from Crypto.Signature import PKCS1_v1_5
 from Crypto import Random
 from Crypto.Cipher import ARC4
 from Crypto.Cipher import PKCS1_v1_5

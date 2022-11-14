@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-11-13 01:23+0000\n"
+"POT-Creation-Date: 2022-11-14 22:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../interfaces.py:21
+#: ../interfaces.py:22
 msgid "API URL"
 msgstr ""
 
@@ -25,6 +25,10 @@ msgstr ""
 
 #: ../behaviors/billing.py:23
 msgid "Billing"
+msgstr ""
+
+#: ../interfaces.py:42
+msgid "Confirm URL"
 msgstr ""
 
 #: ../browser/netopia.pt:12
@@ -45,7 +49,7 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
-#: ../profiles.zcml:17
+#: ../profiles.zcml:16
 msgid "Installs the collective.netopia add-on."
 msgstr ""
 
@@ -63,11 +67,11 @@ msgstr ""
 msgid "Netopia Payments"
 msgstr ""
 
-#: ../interfaces.py:22
+#: ../interfaces.py:23
 msgid "Netopia Payments MobilPay API URL"
 msgstr ""
 
-#: ../interfaces.py:28
+#: ../interfaces.py:56
 msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
 msgstr ""
 
@@ -84,12 +88,16 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: ../interfaces.py:35
+#: ../interfaces.py:63
 msgid "Private KEY"
 msgstr ""
 
-#: ../interfaces.py:41
+#: ../interfaces.py:69
 msgid "Public KEY"
+msgstr ""
+
+#: ../interfaces.py:28
+msgid "Return URL"
 msgstr ""
 
 #: ../behaviors/shipping.py:23
@@ -116,18 +124,26 @@ msgstr ""
 msgid "Shipping Phone number"
 msgstr ""
 
-#: ../interfaces.py:27
+#: ../interfaces.py:55
 msgid "Signature"
 msgstr ""
 
-#: ../profiles.zcml:26
+#: ../interfaces.py:43
+msgid "The confirm URL will be used for IPN (Instant Payment Notification) - i.e. to send information about the transaction's status. If you're not sure about this use default value: netopia.confirm. You can implement your custom confirmation order URL: e.g. custom-confirmation. Start with / to use a Site Root relative path: e.g.: /global-confirmation. You can also provide an absolute_url like: https://www.example.com/global-confirmation-webhook"
+msgstr ""
+
+#: ../interfaces.py:29
+msgid "The redirect URL will be used to redirect User/Customer back to the Merchant's website from NETOPIA Payments (from the payment page, after the payment is done). Leave empty to redirect to the Order URL. You can redirect to order URL + dedicated view: e.g. thank-you. Start with / to redirect to Site Root relative path: e.g.: /user-account. You can also provide an absolute_url like: https://www.example.com/thank-you"
+msgstr ""
+
+#: ../profiles.zcml:25
 msgid "Uninstalls the collective.netopia add-on."
 msgstr ""
 
-#: ../profiles.zcml:17
+#: ../profiles.zcml:16
 msgid "collective.netopia"
 msgstr ""
 
-#: ../profiles.zcml:26
+#: ../profiles.zcml:25
 msgid "collective.netopia (uninstall)"
 msgstr ""

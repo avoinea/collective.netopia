@@ -19,10 +19,20 @@ Features
 4. Sign Order Browser View **order/@@netopia.sign**
 5. Payment Browser View **order/@@netopia.pay**
 6. Payment Confirmation Browser View **order/@@netopia.confirm**
-7. RestAPI endpoints:
+7. Custom events and content-rules trigger actions:
+
+   - **IPaymentEvent**
+   - **IPaymentConfirmedEvent**
+   - **IPaymentConfirmedPendingEvent**
+   - **IPaymentPaidPendingEvent**
+   - **IPaymentPaidEvent**
+   - **IPaymentCancelledEvent**
+   - **IPaymentCreditEvent**
+   - **IPaymentRejectedEvent**
+
+8. RestAPI endpoints:
 
    - **order/@netopia.sign**
-   - **order/@netopia.confirm**
 
 Translations
 ------------
