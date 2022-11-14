@@ -20,13 +20,15 @@ class CollectiveNetopiaLayer(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         import plone.app.dexterity
+
         self.loadZCML(package=plone.app.dexterity)
         import plone.restapi
+
         self.loadZCML(package=plone.restapi)
         self.loadZCML(package=collective.netopia)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.netopia:default')
+        applyProfile(portal, "collective.netopia:default")
 
 
 COLLECTIVE_NETOPIA_FIXTURE = CollectiveNetopiaLayer()
@@ -34,13 +36,13 @@ COLLECTIVE_NETOPIA_FIXTURE = CollectiveNetopiaLayer()
 
 COLLECTIVE_NETOPIA_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_NETOPIA_FIXTURE,),
-    name='CollectiveNetopiaLayer:IntegrationTesting',
+    name="CollectiveNetopiaLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_NETOPIA_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_NETOPIA_FIXTURE,),
-    name='CollectiveNetopiaLayer:FunctionalTesting',
+    name="CollectiveNetopiaLayer:FunctionalTesting",
 )
 
 
@@ -49,5 +51,5 @@ COLLECTIVE_NETOPIA_ACCEPTANCE_TESTING = FunctionalTesting(
         COLLECTIVE_NETOPIA_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name='CollectiveNetopiaLayer:AcceptanceTesting',
+    name="CollectiveNetopiaLayer:AcceptanceTesting",
 )
