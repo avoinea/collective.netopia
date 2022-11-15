@@ -2,7 +2,10 @@
 collective.netopia
 ==================
 
-`Netopia Payments <https://netopia-payments.com>`_ for Plone
+`Netopia Payments <https://netopia-payments.com>`_ for `Plone <https://plone.org/>`_
+
+See also `volto-netopia <https://github.com/avoinea/volto-netopia>`_
+if you intend to use with `Volto <https://6.dev-docs.plone.org/volto/>`_ Plone Frontend.
 
 Features
 --------
@@ -14,7 +17,7 @@ Features
    - **collective.netopia.price**
    - **collective.netopia.billing**
    - **collective.netopia.shipping**
-  
+
 3. Sign Order Utility **getUtility(ICollectiveNetopiaSignedOrder)**
 4. Sign Order Browser View **order/@@netopia.sign**
 5. Payment Browser View **order/@@netopia.pay**
@@ -42,8 +45,8 @@ This product has been translated into
 - Romanian
 
 
-Installation
-------------
+Getting started
+---------------
 
 1. Within your Plone 6 pip based environment run::
 

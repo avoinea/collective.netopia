@@ -17,6 +17,15 @@
       />
 
   <genericsetup:registerProfile
+      name="demo"
+      title="collective.netopia (Demo Order)"
+      description="Installs the collective.netopia Demo Order"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/demo"
+      post_handler=".setuphandlers.post_install"
+      />
+
+  <genericsetup:registerProfile
       name="uninstall"
       title="collective.netopia (uninstall)"
       description="Uninstalls the collective.netopia add-on."
