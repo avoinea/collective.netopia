@@ -33,7 +33,7 @@ class NetopiaSign(object):
 
         order = queryMultiAdapter((self.context, self.request), name="netopia.sign")
         if order:
-            result["netopia.sign"]['server'] = order.server()
+            result["netopia.sign"]["server"] = order.server()
             result["netopia.sign"].update(order.signed_order)
         return json_compatible(result)
 
