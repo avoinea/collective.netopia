@@ -60,6 +60,31 @@ Getting started
 7. Go to Site root and add a new Order
 8. Go to /my-order/netopia.pay and click **Continue to payment**
 
+Troubleshooting
+---------------
+
+1. locale.Error: unsupported locale setting::
+
+      Module collective.netopia.utilities.order, line 106, in __call__
+      Module collective.netopia.mobilpay.payment.request.card, line 60, in encrypt
+      Module collective.netopia.mobilpay.invoice, line 116, in create_xml_element
+      Module locale, line 610, in setlocale
+      locale.Error: locale.Error: unsupported locale setting
+
+- See https://stackoverflow.com/questions/59633558/python-based-dockerfile-throws-locale-error-unsupported-locale-setting
+
+      apt-get update && \
+      apt-get install -y locales && \
+      sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+      dpkg-reconfigure --frontend=noninteractive locales
+
+- After dpkg-reconfigure, the locale should be available as en_US.UTF-8.
+- You can also add the following to .bashrc::
+
+      export LANG en_US.UTF-8
+      export LC_NUMERIC en_US.UTF-8
+
+
 Authors
 -------
 
