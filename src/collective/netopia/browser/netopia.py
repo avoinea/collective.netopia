@@ -67,6 +67,7 @@ from zope.event import notify
 from zope.component import queryUtility
 from plone.uuid.interfaces import IUUID
 from plone import api
+from plone.restapi.deserializer import json_body
 from collective.netopia.mobilpay.request import Request
 from collective.netopia.mobilpay.payment.request.crc import Crc
 from collective.netopia.interfaces import ICollectiveNetopiaSignedOrder
@@ -333,8 +334,12 @@ class NetopiaConfirm(BrowserView):
                 "invalid request method for payment confirmation",
             )
 
-        env_key = self.request.get("env_key")
-        env_data = self.request.get("env_data")
+        form = self.request.form
+        if 'env_key' not in form:
+            form = json_body(self.request)
+
+        env_key = form.get("env_key")
+        env_data = form.get("data")
 
         if (
             env_key is None
