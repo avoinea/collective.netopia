@@ -137,9 +137,12 @@ class NetopiaSignedOrder(BrowserView):
     def return_url(self):
         """Return URL"""
         if self._return_url is None:
-            self._return_url = api.portal.get_registry_record(
-                "return_url", interface=ICollectiveNetopiaSettings, default=""
-            ) or ""
+            self._return_url = (
+                api.portal.get_registry_record(
+                    "return_url", interface=ICollectiveNetopiaSettings, default=""
+                )
+                or ""
+            )
             # Site relative path
             if self._return_url.startswith("/"):
                 self._return_url = api.portal.get().absolute_url() + self._return_url
@@ -155,9 +158,12 @@ class NetopiaSignedOrder(BrowserView):
     def confirm_url(self):
         """Confirm URL"""
         if self._confirm_url is None:
-            self._confirm_url = api.portal.get_registry_record(
-                "confirm_url", interface=ICollectiveNetopiaSettings, default=""
-            ) or ""
+            self._confirm_url = (
+                api.portal.get_registry_record(
+                    "confirm_url", interface=ICollectiveNetopiaSettings, default=""
+                )
+                or ""
+            )
             # Site relative path
             if self._confirm_url.startswith("/"):
                 self._confirm_url = api.portal.get().absolute_url() + self._confirm_url
@@ -335,7 +341,7 @@ class NetopiaConfirm(BrowserView):
             )
 
         form = self.request.form
-        if 'env_key' not in form:
+        if "env_key" not in form:
             form = json_body(self.request)
 
         env_key = form.get("env_key")
