@@ -1,6 +1,7 @@
 """ GET
 """
 # -*- coding: utf-8 -*-
+from plone.dexterity.interfaces import IDexterityContent
 from plone.restapi.interfaces import IExpandableElement
 from plone.restapi.serializer.converters import json_compatible
 from plone.restapi.services import Service
@@ -13,7 +14,7 @@ from zope.interface import noLongerProvides
 
 
 @implementer(IExpandableElement)
-@adapter(Interface, Interface)
+@adapter(IDexterityContent, IPloneRestapiLayer)
 class NetopiaSign(object):
     """Get netopia.sign"""
 
