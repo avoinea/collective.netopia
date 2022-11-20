@@ -191,10 +191,10 @@ class NetopiaSignedOrder(BrowserView):
                 "phone": self.context.phone,
                 "confirm_url": self.confirm_url,
                 "return_url": self.return_url,
-                "id": getattr(self.context, "order_id", IUUID(self.context)),
-                "token": getattr(self.context, "token", IUUID(self.context)),
-                "currency": getattr(self.context, "currency", "RON"),
-                "billing": getattr(self.context, "billing", "person"),
+                "id": getattr(self.context, "order_id", None) or IUUID(self.context),
+                "token": getattr(self.context, "token", None) or IUUID(self.context),
+                "currency": getattr(self.context, "currency", None) or "RON",
+                "billing": getattr(self.context, "billing", None) or "person",
                 "shipping": getattr(self.context, "shipping", None)
                 or getattr(self.context, "billing", "person"),
                 "shipping_first_name": getattr(
