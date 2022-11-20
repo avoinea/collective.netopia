@@ -93,6 +93,10 @@ class IPaymentEvent(ICollectiveNetopiaEvent):
     """All payment events should inherit from this"""
 
 
+class IPaymentSignedEvent(IPaymentEvent):
+    """Order signed"""
+
+
 class IPaymentConfirmedEvent(IPaymentEvent):
     """Payment status: confirmed"""
 

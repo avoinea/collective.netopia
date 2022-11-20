@@ -2,6 +2,7 @@
 """
 from zope.interface import implementer
 from collective.netopia.interfaces import IPaymentEvent
+from collective.netopia.interfaces import IPaymentSignedEvent
 from collective.netopia.interfaces import IPaymentConfirmedEvent
 from collective.netopia.interfaces import IPaymentConfirmedPendingEvent
 from collective.netopia.interfaces import IPaymentPaidPendingEvent
@@ -19,6 +20,11 @@ class PaymentEvent:
         self.object = context
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+
+@implementer(IPaymentSignedEvent)
+class PaymentSignedEvent(PaymentEvent):
+    """Order signed and ready to be payed"""
 
 
 @implementer(IPaymentConfirmedEvent)

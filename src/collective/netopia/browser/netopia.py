@@ -72,6 +72,7 @@ from collective.netopia.mobilpay.request import Request
 from collective.netopia.mobilpay.payment.request.crc import Crc
 from collective.netopia.interfaces import ICollectiveNetopiaSignedOrder
 from collective.netopia.interfaces import ICollectiveNetopiaSettings
+from collective.netopia.events.payment import PaymentSignedEvent
 from collective.netopia.events.payment import PaymentConfirmedEvent
 from collective.netopia.events.payment import PaymentConfirmedPendingEvent
 from collective.netopia.events.payment import PaymentPaidPendingEvent
@@ -218,6 +219,11 @@ class NetopiaSignedOrder(BrowserView):
         if self._signed_order is None:
             sign = queryUtility(ICollectiveNetopiaSignedOrder)
             self._signed_order = sign(**self.order)
+            notify(
+                PaymentSignedEvent(
+                    self.context, status="signed", code=0, msg="Payment signed"
+                )
+            )
         return self._signed_order
 
 
