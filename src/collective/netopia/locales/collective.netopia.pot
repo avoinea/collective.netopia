@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-11-14 22:44+0000\n"
+"POT-Creation-Date: 2022-11-21 11:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,10 +27,11 @@ msgid "Address"
 msgstr ""
 
 #: ../behaviors/billing.py:23
+#: ../behaviors/configure.zcml:35
 msgid "Billing"
 msgstr ""
 
-#: ../interfaces.py:42
+#: ../interfaces.py:44
 msgid "Confirm URL"
 msgstr ""
 
@@ -52,7 +53,11 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
-#: ../profiles.zcml:16
+#: ../profiles.zcml:26
+msgid "Installs the collective.netopia Demo Order"
+msgstr ""
+
+#: ../profiles.zcml:17
 msgid "Installs the collective.netopia add-on."
 msgstr ""
 
@@ -74,8 +79,12 @@ msgstr ""
 msgid "Netopia Payments MobilPay API URL"
 msgstr ""
 
-#: ../interfaces.py:56
+#: ../interfaces.py:61
 msgid "Netopia Payments MobilPay unique key that identifies your point of sale in the payment process."
+msgstr ""
+
+#: ../behaviors/configure.zcml:17
+msgid "Order"
 msgstr ""
 
 #: ../behaviors/billing.py:58
@@ -87,15 +96,16 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
+#: ../behaviors/configure.zcml:26
 #: ../behaviors/price.py:23
 msgid "Price"
 msgstr ""
 
-#: ../interfaces.py:63
+#: ../interfaces.py:69
 msgid "Private KEY"
 msgstr ""
 
-#: ../interfaces.py:69
+#: ../interfaces.py:75
 msgid "Public KEY"
 msgstr ""
 
@@ -103,6 +113,7 @@ msgstr ""
 msgid "Return URL"
 msgstr ""
 
+#: ../behaviors/configure.zcml:44
 #: ../behaviors/shipping.py:23
 msgid "Shipping"
 msgstr ""
@@ -127,11 +138,11 @@ msgstr ""
 msgid "Shipping Phone number"
 msgstr ""
 
-#: ../interfaces.py:55
+#: ../interfaces.py:60
 msgid "Signature"
 msgstr ""
 
-#: ../interfaces.py:43
+#: ../interfaces.py:45
 msgid "The confirm URL will be used for IPN (Instant Payment Notification) - i.e. to send information about the transaction's status. If you're not sure about this use default value: netopia.confirm. You can implement your custom confirmation order URL: e.g. custom-confirmation. Start with / to use a Site Root relative path: e.g.: /global-confirmation. You can also provide an absolute_url like: https://www.example.com/global-confirmation-webhook"
 msgstr ""
 
@@ -139,14 +150,34 @@ msgstr ""
 msgid "The redirect URL will be used to redirect User/Customer back to the Merchant's website from NETOPIA Payments (from the payment page, after the payment is done). Leave empty to redirect to the Order URL. You can redirect to order URL + dedicated view: e.g. thank-you. Start with / to redirect to Site Root relative path: e.g.: /user-account. You can also provide an absolute_url like: https://www.example.com/thank-you"
 msgstr ""
 
-#: ../profiles.zcml:25
+#: ../profiles.zcml:35
 msgid "Uninstalls the collective.netopia add-on."
 msgstr ""
 
-#: ../profiles.zcml:16
+#: ../profiles.zcml:17
 msgid "collective.netopia"
 msgstr ""
 
-#: ../profiles.zcml:25
+#: ../profiles.zcml:26
+msgid "collective.netopia (Demo Order)"
+msgstr ""
+
+#: ../profiles.zcml:35
 msgid "collective.netopia (uninstall)"
+msgstr ""
+
+#: ../behaviors/configure.zcml:35
+msgid "collective.netopia: Billing"
+msgstr ""
+
+#: ../behaviors/configure.zcml:17
+msgid "collective.netopia: Order"
+msgstr ""
+
+#: ../behaviors/configure.zcml:26
+msgid "collective.netopia: Price"
+msgstr ""
+
+#: ../behaviors/configure.zcml:44
+msgid "collective.netopia: Shipping"
 msgstr ""
