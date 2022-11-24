@@ -334,6 +334,7 @@ class NetopiaConfirm(BrowserView):
             error_type,
             error_message,
         )
+        self.request.response.setHeader('Content-Type', 'application/xml; charset=utf-8')
         crc = Crc(error_code, error_type, error_message).create_crc()
         return crc.toprettyxml(indent="\t", encoding="utf-8")
 
@@ -369,6 +370,10 @@ class NetopiaConfirm(BrowserView):
         error_type = Request.CONFIRM_ERROR_TYPE_NONE
         error_message = ""
 
+        # if env_key == 'TEST' and env_data == 'TEST':
+            # self.confirmed(error_code, "TEST")
+            # return self.xml(1, 36, 'fraud')
+
         try:
             req = Request().factory_from_encrypted(
                 unquote(env_key), unquote(env_data), self.private_key
@@ -401,10 +406,10 @@ class NetopiaConfirm(BrowserView):
                     error_code = Request.ERROR_CONFIRM_INVALID_ACTION
                     error_message = "mobilpay_reference_action parameters is invalid"
             else:
-                self.rejected(req_notify.errorCode, req_notify.errorMessage)
                 error_message = req_notify.errorMessage
                 error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
                 error_code = req_notify.errorCode
+                self.rejected(error_code, error_message)
         except Exception as err:
             error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
             error_message, error_code = err.args[0], err.args[1]
