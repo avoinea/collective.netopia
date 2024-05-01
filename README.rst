@@ -60,6 +60,11 @@ Getting started
 7. Go to Site root and add a new Order
 8. Go to /my-order/netopia.pay and click **Continue to payment**
 
+Testing Cards
+-------------
+
+- https://support.netopia-payments.com/en-us/article/52-carduri-de-test
+
 Troubleshooting
 ---------------
 
