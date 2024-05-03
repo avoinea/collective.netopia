@@ -1,4 +1,4 @@
-""" Zotero Controlpanel API
+""" Controlpanel API
 """
 from zope.interface import Interface
 from zope.component import adapter
@@ -9,7 +9,7 @@ from collective.netopia.interfaces import ICollectiveNetopiaLayer
 
 @adapter(Interface, ICollectiveNetopiaLayer)
 class Controlpanel(RegistryConfigletPanel):
-    """Zotero Control Panel"""
+    """ Control Panel"""
 
     schema = ICollectiveNetopiaSettings
     configlet_id = "netopia"
