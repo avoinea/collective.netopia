@@ -411,6 +411,7 @@ class NetopiaConfirm(BrowserView):
                 error_code = req_notify.errorCode
                 self.rejected(error_code, error_message)
         except Exception as err:
+            logger.exception(err)
             error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
             error_message, error_code = err.args[0], err.args[1]
             self.rejected(error_code, error_message)
