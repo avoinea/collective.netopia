@@ -413,7 +413,7 @@ class NetopiaConfirm(BrowserView):
         except Exception as err:
             logger.exception(err)
             error_type = Request.CONFIRM_ERROR_TYPE_TEMPORARY
-            error_message, error_code = err.args[0], err.args[1]
+            error_message, error_code = f"{err}", 1
             self.rejected(error_code, error_message)
 
         return self.xml(error_code, error_type, error_message)
