@@ -25,6 +25,8 @@ class IBilling(model.Schema):
             "first_name",
             "last_name",
             "address",
+            "city",
+            "state",
             "email",
             "phone",
         ),
@@ -45,6 +47,18 @@ class IBilling(model.Schema):
     address = schema.TextLine(
         title=_("Address"),
         description=_("Address"),
+        required=True,
+    )
+
+    city = schema.TextLine(
+        title=_("City"),
+        description=_("City"),
+        required=True,
+    )
+
+    state = schema.TextLine(
+        title=_("State"),
+        description=_("State"),
         required=True,
     )
 
@@ -98,6 +112,26 @@ class Billing(object):
     @address.setter
     def address(self, value):
         self.context.address = value
+
+    @property
+    def city(self):
+        if hasattr(self.context, "city"):
+            return self.context.city
+        return ""
+
+    @city.setter
+    def city(self, value):
+        self.context.city = value
+
+    @property
+    def state(self):
+        if hasattr(self.context, "state"):
+            return self.context.state
+        return ""
+
+    @state.setter
+    def state(self, value):
+        self.context.state = value
 
     @property
     def email(self):
